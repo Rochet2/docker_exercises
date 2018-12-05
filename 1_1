@@ -1,0 +1,11 @@
+CONTAINER ID        IMAGE                    COMMAND                  CREATED             STATUS                      PORTS                      NAMES
+e8d302e79e6b        nginx                    "nginx -g 'daemon of…"   7 minutes ago       Exited (0) 6 minutes ago                               eager_yalow
+bcc90e2cdddf        nginx                    "nginx -g 'daemon of…"   7 minutes ago       Exited (0) 6 minutes ago                               vigilant_curie
+251c6631c258        nginx                    "nginx -g 'daemon of…"   7 minutes ago       Up 7 minutes                80/tcp                     silly_vaughan
+6461df73ffed        nginx                    "nginx -g 'daemon of…"   11 minutes ago      Exited (0) 11 minutes ago                              naughty_jones
+0c9eb3416536        oodikone2cli_backend     "/node_modules/.bin/…"   2 days ago          Up 2 days                   0.0.0.0:8080->8080/tcp     backend
+0c190f93152b        oodikone2cli_oodilearn   "python app.py"          2 days ago          Up 2 days                   0.0.0.0:5000->5000/tcp     oodilearn
+8265554bd57f        oodikone2cli_frontend    "npm run docker"         2 days ago          Up 2 days                   0.0.0.0:8081->8081/tcp     frontend
+9651dcbce056        redis                    "docker-entrypoint.s…"   2 days ago          Up 2 days                   0.0.0.0:6379->6379/tcp     redis
+3d93c050652a        mongo                    "docker-entrypoint.s…"   2 days ago          Up 2 days                   0.0.0.0:27017->27017/tcp   mongo_db
+d7c357e52b15        postgres:9.6.3           "docker-entrypoint.s…"   2 days ago          Up 2 days                   0.0.0.0:5421->5432/tcp     oodi_db
