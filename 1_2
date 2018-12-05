@@ -1,0 +1,24 @@
+Oleellisesti poistettu hello-world
+
+REPOSITORY               TAG                 IMAGE ID            CREATED             SIZE
+oodikone2cli_backend     latest              aeaf8b3c8992        2 days ago          785MB
+oodikone2cli_oodilearn   latest              a3c681a6f380        2 days ago          947MB
+oodikone2cli_frontend    latest              d6e2f3205836        2 days ago          954MB
+redis                    latest              5958914cc558        6 days ago          94.9MB
+nginx                    latest              568c4670fa80        7 days ago          109MB
+mongo                    latest              525bd2016729        2 weeks ago         383MB
+python                   3.6.7-slim          ea57895cf3f9        2 weeks ago         138MB
+node                     8.11.3              ed145ef978c4        4 months ago        673MB
+node                     8.9.4               672002a50a0b        9 months ago        676MB
+postgres                 9.6.3               33b13ed6b80a        16 months ago       269MB
+
+
+CONTAINER ID        IMAGE                    COMMAND                  CREATED             STATUS              PORTS                      NAMES
+251c6631c258        nginx                    "nginx -g 'daemon of…"   13 minutes ago      Up 13 minutes       80/tcp                     silly_vaughan
+0c9eb3416536        oodikone2cli_backend     "/node_modules/.bin/…"   2 days ago          Up 2 days           0.0.0.0:8080->8080/tcp     backend
+0c190f93152b        oodikone2cli_oodilearn   "python app.py"          2 days ago          Up 2 days           0.0.0.0:5000->5000/tcp     oodilearn
+8265554bd57f        oodikone2cli_frontend    "npm run docker"         2 days ago          Up 2 days           0.0.0.0:8081->8081/tcp     frontend
+9651dcbce056        redis                    "docker-entrypoint.s…"   2 days ago          Up 2 days           0.0.0.0:6379->6379/tcp     redis
+3d93c050652a        mongo                    "docker-entrypoint.s…"   2 days ago          Up 2 days           0.0.0.0:27017->27017/tcp   mongo_db
+d7c357e52b15        postgres:9.6.3           "docker-entrypoint.s…"   2 days ago          Up 2 days           0.0.0.0:5421->5432/tcp     oodi_db
+
