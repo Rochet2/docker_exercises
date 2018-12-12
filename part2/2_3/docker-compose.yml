@@ -1,0 +1,37 @@
+version: '3.5'
+
+services:
+  exfrontend:
+    image: fed
+    build:
+      context: ./frontend-example-docker
+      dockerfile: Dockerfile-front
+    ports:
+      - 5001:5000
+    environment:
+      - API_URL=http://localhost:8000
+
+  exbackend:
+    image: bed
+    build:
+      context: ./backend-example-docker
+      dockerfile: Dockerfile-back
+    ports:
+      - 8000:8000
+    environment:
+      - FRONT_URL=http://localhost:5001
+      - REDIS=exredis
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=example
+      - DB_NAME=postgres
+      - DB_HOST=exdb
+
+  exredis:
+    image: redis
+
+  exdb:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+

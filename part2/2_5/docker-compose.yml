@@ -1,0 +1,49 @@
+version: '3.5'
+
+services:
+  proxy:
+    image: nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 80:80
+    depends_on:
+      - exfrontend
+      - exbackend
+
+  exfrontend:
+    image: fed
+    build:
+      context: ./frontend-example-docker
+      dockerfile: Dockerfile-front
+    ports:
+      - 5001:5000
+    environment:
+      - API_URL=http://localhost/api/
+
+  exbackend:
+    image: bed
+    build:
+      context: ./backend-example-docker
+      dockerfile: Dockerfile-back
+    ports:
+      - 8000:8000
+    environment:
+      - FRONT_URL=http://nginx
+      - REDIS=exredis
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=example
+      - DB_NAME=postgres
+      - DB_HOST=exdb
+    depends_on:
+      - exredis
+      - exdb
+
+  exredis:
+    image: redis
+
+  exdb:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: example
+

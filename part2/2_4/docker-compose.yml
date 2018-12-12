@@ -1,0 +1,26 @@
+version: '3.5'
+
+services:
+  kurkkufront:
+    build: ./front
+    ports:
+      - 3000:3000
+
+  kurkkuback:
+    build: ./back
+    ports:
+      - 5005:5000
+    volumes:
+      - model-data:/src/model
+
+  kurkkutrain:
+    build: ./training
+    volumes:
+      - model-data:/src/model
+      - train-imgs:/src/imgs
+      - train-data:/src/data
+
+volumes:
+  model-data:
+  train-imgs:
+  train-data:

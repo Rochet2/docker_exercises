@@ -1,0 +1,32 @@
+version: '3.5'
+
+services:
+  exfrontend:
+    image: fed
+    build:
+      context: ./frontend-example-docker
+      dockerfile: Dockerfile-front
+    ports:
+      - 5001:5000
+    environment:
+      - API_URL=http://localhost:8000
+    container_name: exfrontend
+
+  exbackend:
+    image: bed
+    build:
+      context: ./backend-example-docker
+      dockerfile: Dockerfile-back
+    ports:
+      - 8000:8000
+    environment:
+      - FRONT_URL=http://localhost:5001
+      - REDIS=exredis
+    container_name: exbacktend
+
+  exredis:
+    image: redis
+    environment:
+      - FRONT_URL=http://localhost:5001
+    container_name: exredis
+
