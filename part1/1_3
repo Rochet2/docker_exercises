@@ -1,4 +1,4 @@
-docker run --rm -d -it --name looper ubuntu:16.04 sh -c "read website; sleep 3; curl http://$website;"
+docker run --rm -d -it --name looper ubuntu:16.04 sh -c 'read website; sleep 3; curl http://$website;'
 docker exec -it looper bash
 apt-get update
 apt-get install curl

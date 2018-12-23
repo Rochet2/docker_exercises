@@ -1,0 +1,7 @@
+**/.userprefs
+.vs/
+bin/
+obj/
+packages/
+**/TestCode.txt
+**/*.user

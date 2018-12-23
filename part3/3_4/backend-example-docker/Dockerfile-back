@@ -1,0 +1,14 @@
+FROM node:alpine
+EXPOSE 8000
+
+WORKDIR /mydir
+
+COPY . .
+RUN npm install
+
+RUN chown node /mydir/node_modules
+USER node
+CMD npm start
+
+# docker build -t bed .
+# docker run --rm -p 8000:8000 -v $(pwd)/backend-example-docker/logs.txt:/mydir/logs.txt bed
